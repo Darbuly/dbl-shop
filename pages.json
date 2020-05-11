@@ -1,0 +1,86 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	//===================    底部导航 开始    =================
+		{
+			"path": "pages/index/index",
+			"style": {
+				// #ifdef MP 
+				"navigationBarTitleText": "宜居茶庄"
+				//"navigationStyle": "custom",
+				// #endif 
+			}
+		}, 
+		{
+			"path": "pages/user/user",
+			"style": {
+				"navigationBarTitleText": "我的"
+				// #ifdef MP
+				,"navigationStyle": "custom"
+				// #endif
+			}
+		},
+		{
+			"path": "pages/cart/cart",
+			"style": {
+				"navigationBarTitleText": "购物车"
+			}
+		}, 
+		{
+            "path" : "pages/category/category",
+            "style" : {
+				"navigationBarTitleText": "分类",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+        },
+		{
+            "path" : "pages/test/test",
+            "style" : {
+				"navigationBarTitleText": "测试模块",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+        }
+		//===================    底部导航 结束    =================
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "粤谷茶叶商城",
+		"navigationBarBackgroundColor": "#08631e",
+		"backgroundColor": "#e6eaeb"
+	},
+	"tabBar": {	//底部导航栏
+		"color": "#C0C4CC",
+		"selectedColor": "#fa436a",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/tab-home.png",
+				"selectedIconPath": "static/tab-home-current.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/category/category",
+				"iconPath": "static/tab-cate.png",
+				"selectedIconPath": "static/tab-cate-current.png",
+				"text": "分类"
+			},
+			{
+				"pagePath": "pages/cart/cart",
+				"iconPath": "static/tab-cart.png",
+				"selectedIconPath": "static/tab-cart-current.png",
+				"text": "购物车"
+			},
+			{
+				"pagePath": "pages/user/user",
+				"iconPath": "static/tab-my.png",
+				"selectedIconPath": "static/tab-my-current.png",
+				"text": "我的"
+			}
+		]
+	}
+
+}

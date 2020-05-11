@@ -1,0 +1,78 @@
+//定义颜色
+
+$green = #08631e;
+$yellow = #F2a100;
+$font-color = #3d3d3d;
+$bc = #f5f9fa;
+$bc2 = #E7EAEB;
+$bc3 = #eff1f0;
+$bc4 = #f2f8f4
+//定义UI库
+.iconmaidan:before{	//买单
+	content: "\e638";
+}
+.iconchashuijian:before{//茶水
+	content: "\e602";
+}
+.icondaohang:before{//导航
+	content: "\e640";
+}
+.icontianchongxing-:before{//钱包
+	content: "\e63b";
+}
+.icondian:before{//点
+	content: "\ec1e";
+}
+//定义内容宽
+$content-width = 692rpx
+
+// 一像素下边框
+bottom-border-1px($color)
+	position relative
+	border none
+	&::after
+		content ''
+		position absolute
+		left 0
+		bottom 0
+		width 100%
+		height 1rpx
+		background-color $color
+		transform scaleY(0.5)
+// 一像素上边框
+top-border-1px($color)
+	postion relative
+	border none
+	&::before
+		content ''
+		position absolute
+		left 0
+		top 0
+		width 100%
+		height 1rpx
+		background-color $color
+
+// // 根据像素比缩放1px像素边框
+// @media only screen and (-webkit-device-pixel-ratio: 2 )
+// 	.border-1px
+// 		&::before
+// 			transform scaleY(.5)
+
+// @media only screen and (-webkit-device-pixel-ratio: 3 )
+// 	.border-1px
+// 		&::before
+// 			transform scaleY(.333333)
+
+// //根据像素比使用2x/3x图
+// bg-image($url)
+// 	background-image url($url + "@2x.png")
+// 	@media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3)
+// 		background-image url($url + "@3x.png")
+
+//清除浮动
+clearfix()
+	*zoom 1
+	&::after
+		content ''
+		display table
+		clear both
