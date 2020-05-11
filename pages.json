@@ -5,9 +5,39 @@
 			"path": "pages/index/index",
 			"style": {
 				// #ifdef MP 
-				"navigationBarTitleText": "宜居茶庄"
+				"navigationBarTitleText": "宜居茶庄",
 				//"navigationStyle": "custom",
 				// #endif 
+				"app-plus": {
+					//导航栏
+					"titleNView": {
+						"type": "transparent",//"transparent"-滚动透明渐变
+						"searchInput": {//原生导航栏上放置搜索框
+							"backgroundColor": "rgba(231, 231, 231,.7)",//背景颜色
+							"borderRadius": "16px",
+							"placeholder": "请输入地址 如：大钟寺",
+							"disabled": true,//是否可输入
+							"placeholderColor": "#606266"//提示文本颜色
+						},
+						"buttons": [{
+								"fontSrc": "/static/yticon.ttf",//扫码
+								"text": "\ue60d",
+								"fontSize": "26",
+								"color": "red",
+								"float": "left",
+								"background": "rgba(0,0,0,0)"
+							},
+							{
+								"fontSrc": "/static/yticon.ttf",//通知
+								"text": "\ue744",
+								"fontSize": "27",
+								"color": "#303133",
+								"background": "rgba(0,0,0,0)",
+								"redDot": true
+							}
+						]
+					}
+				}
 			}
 		}, 
 		{
@@ -15,8 +45,31 @@
 			"style": {
 				"navigationBarTitleText": "我的"
 				// #ifdef MP
-				,"navigationStyle": "custom"
+				,"navigationStyle": "custom",//取消原生导航栏
 				// #endif
+				"app-plus": {
+					"bounce": "none",//页面回弹效果，设置为 "none" 时关闭效果。
+					"titleNView": {
+						"type": "transparent",
+						"buttons": [{//从右到左
+								"fontSrc": "/static/yticon.ttf",//设置
+								"text": "\ue60f",
+								"fontSize": "24",
+								"color": "#303133",
+								"width": "46px",
+								"background": "rgba(0,0,0,0)"
+							},
+							{
+								"fontSrc": "/static/yticon.ttf",//通知
+								"text": "\ue744",
+								"fontSize": "28",
+								"color": "#303133",
+								"background": "rgba(0,0,0,0)",
+								"redDot": true
+							}
+						]
+					}
+				}
 			}
 		},
 		{
@@ -34,6 +87,17 @@
 				}
 			}
         },
+		{
+			"path": "pages/public/login",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleNView": false,
+					"animationType": "slide-in-bottom"//从底部进入
+				}
+			}
+		},
 		{
             "path" : "pages/test/test",
             "style" : {

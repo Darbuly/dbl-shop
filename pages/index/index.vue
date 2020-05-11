@@ -217,15 +217,17 @@
 </template>
 
 <script>
-	import test from '@/components/test.vue'
-	export default {
-		components:{test}
-	}
+
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
+	
+	// 1. 引用公共资源(common/stylus)中自定义svg-base64矢量图库】
+	@import "@/common/stylus/svg.styl"
+	
+	// 2. 是引用公共资源(common/stylus)中的公共样式
 	@import "@/common/stylus/mixins.styl"
-	@import "@/static/svg.styl"
+
 	@font-face {
 	    font-family: xinwei;
 	    src: url("@/static/font_family/xinwei.ttf")

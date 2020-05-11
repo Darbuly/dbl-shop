@@ -1,4 +1,6 @@
-//定义颜色
+// 1. 常量定义
+
+// 1.1 定义颜色
 
 $green = #08631e;
 $yellow = #F2a100;
@@ -6,73 +8,142 @@ $font-color = #3d3d3d;
 $bc = #f5f9fa;
 $bc2 = #E7EAEB;
 $bc3 = #eff1f0;
-$bc4 = #f2f8f4
-//定义UI库
-.iconmaidan:before{	//买单
-	content: "\e638";
-}
-.iconchashuijian:before{//茶水
-	content: "\e602";
-}
-.icondaohang:before{//导航
-	content: "\e640";
-}
-.icontianchongxing-:before{//钱包
-	content: "\e63b";
-}
-.icondian:before{//点
-	content: "\ec1e";
-}
-//定义内容宽
-$content-width = 692rpx
+$bc4 = #f2f8f4;
 
-// 一像素下边框
-bottom-border-1px($color)
-	position relative
-	border none
-	&::after
-		content ''
-		position absolute
-		left 0
-		bottom 0
-		width 100%
-		height 1rpx
-		background-color $color
-		transform scaleY(0.5)
-// 一像素上边框
-top-border-1px($color)
-	postion relative
-	border none
-	&::before
-		content ''
-		position absolute
-		left 0
-		top 0
-		width 100%
-		height 1rpx
-		background-color $color
+//1.2 定义内容宽
+$content-width = 692rpx;
+//1.3 uni-scss翻译
+//1.3.1 页面左右间距
+$page-row-spacing =  30rpx;
+$page-color-base =  #f8f8f8;
+$page-color-light =  #f8f6fc;
+$base-color =  #fa436a;
+//1.3.2 文字尺寸
+$font-sm =  24rpx;
+$font-base =  28rpx;
+$font-lg =  32rpx;
+//1.3.3 文字颜色
+$font-color-dark =  #303133;
+$font-color-base =  #606266;
+$font-color-light =  #909399;
+$font-color-disabled =  #C0C4CC;
+$font-color-spec =  #4399fc;
+//1.3.4 边框颜色
+$border-color-dark =  #DCDFE6;
+$border-color-base =  #E4E7ED;
+$border-color-light =  #EBEEF5;
+//1.3.5 图片加载中颜色
+$image-bg-color =  #eee;
+//1.3.5 行为相关颜色
+$uni-color-primary = #fa436a;
+$uni-color-success =  #4cd964;
+$uni-color-warning =  #f0ad4e;
+$uni-color-error =  #dd524d;
 
-// // 根据像素比缩放1px像素边框
-// @media only screen and (-webkit-device-pixel-ratio: 2 )
-// 	.border-1px
-// 		&::before
-// 			transform scaleY(.5)
+//2. 默认样式定义
+//2.1 自定义和盒子的背景颜色
+*{
+	background-color: #f5f9fa;
+}
 
-// @media only screen and (-webkit-device-pixel-ratio: 3 )
-// 	.border-1px
-// 		&::before
-// 			transform scaleY(.333333)
+//2.2 盒模型定义为border-box
+view,
+scroll-view,
+swiper,
+swiper-item,
+cover-view,
+cover-image,
+icon,
+text,
+rich-text,
+progress,
+button,
+checkbox,
+form,
+input,
+label,
+radio,
+slider,
+switch,
+textarea,
+navigator,
+audio,
+camera,
+image,
+video {
+	box-sizing: border-box;
+}
 
-// //根据像素比使用2x/3x图
-// bg-image($url)
-// 	background-image url($url + "@2x.png")
-// 	@media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3)
-// 		background-image url($url + "@3x.png")
 
-//清除浮动
+//2.3 清除浮动
 clearfix()
 	*zoom 1
 	&::after
 		content ''
 		display table
 		clear both
+
+//2.4 骨架屏替代方案
+.Skeleton
+	background #f3f3f3
+	padding 20rpx 0
+	border-radius 8rpx
+
+//2.5 图片载入替代方案
+.image-wrapper 
+	font-size 0
+	background #f3f3f3
+	border-radius 4px
+	image
+		width 100%
+		height 100%
+		transition .6s
+		opacity 0
+		&.loaded
+			opacity 1
+//2.6 省略号溢出显示
+.clamp
+	overflow hidden
+	text-overflow ellipsis
+	white-space nowrap
+	display block
+
+//2.7 公共悬停样式
+.common-hover
+	background #f5f5f5
+
+//2.8 一像素边框
+.b-b:after,
+.b-t:after 
+	position absolute
+	z-index 3
+	left 0
+	right 0
+	height 0
+	content ''
+	transform scaleY(.5)
+	border-bottom 1px solid $border-color-base
+.b-b:after
+	bottom 0
+.b-t:after
+	top 0
+
+//3、 原生组件样式改写
+//3、1 button样式改写
+uni-button,
+button
+	height 80rpx
+	line-height 80rpx
+	font-size $font-lg + 2rpx
+	font-weight normal
+	&.no-border:before,
+	&.no-border:after 
+		border 0
+	uni-button[type=default],
+	button[type=default] 
+		color $font-color-dark
+//3.2 input 样式
+.input-placeholder
+	color #999999
+.placeholder
+	color #999999
