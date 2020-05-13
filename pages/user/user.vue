@@ -5,10 +5,11 @@
 			<image class="bg" src="/static/user-bg.jpg"></image>
 			<view class="user-info-box">
 				<view class="portrait-box"><!-- 头像 -->
-					<image class="portrait" src="/static/missing-face.png"></image>
+					<image v-if="this.hasLogin" class="portrait" src="/static/missing-face.png"></image>
+					<button v-if="!this.hasLogin" class="get-user-info-btn"  open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权</button>
 				</view>
 				<view class="info-box"><!-- 昵称 -->
-					<text class="username">游客</text>
+					<text class="username">{{userInfo.nickName || '游客，请点左边授权信息'}}</text>
 				</view>
 			</view>
 			<view class="vip-card-box"><!-- 会员信息 -->
@@ -102,6 +103,7 @@
 				console.log(res)
 			},
 			getUserInfo(res){
+				console.log('获取用户信息')
 				api.cacheUserInfo()
 			},
 			async test (){
@@ -125,12 +127,18 @@
 			 * navigator标签现在默认没有转场动画，所以用view
 			 */
 			navTo(url){
+				// #ifdef MP
+				//先判断是否登录
+				if(!this.hasLogin){
+					
+				}
+				// #endif
 				if(!this.hasLogin){
 					url = '/pages/public/login';
 				}
 				uni.navigateTo({  
 					url
-				})  
+				}) 
 			}, 
 		}
 	}
@@ -174,13 +182,21 @@
 		z-index 1
 		.portrait
 			width 130rpx
-			height:130rpx
+			height 130rpx
 			border5rpx solid #fff
 			border-radius 50%
 		.username
 			font-size $font-lg + 6rpx
 			color $font-color-dark
 			margin-left 20rpx
+		.get-user-info-btn
+			width 130rpx
+			height 130rpx
+			border-radius 	65rpx 65rpx
+			font-size 30rpx
+			line-height 130rpx
+			color #fff
+			background-color #9b9b9b
 	.vip-card-box
 		display flex
 		flex-direction column

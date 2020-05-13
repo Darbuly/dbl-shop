@@ -99,6 +99,15 @@
 			}
 		},
 		{
+            "path" : "pages/product/list",
+            "style" : {
+				"navigationBarTitleText": "商品列表",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+        },
+		{
             "path" : "pages/test/test",
             "style" : {
 				"navigationBarTitleText": "测试模块",

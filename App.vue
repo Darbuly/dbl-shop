@@ -1,4 +1,5 @@
 <script>
+	import {login} from '@/common/dblUtils/Login/login'
 	/**
 	 * vuex管理登陆状态
 	 */
@@ -8,6 +9,8 @@
 	export default {
 		onLaunch: function() {
 			console.log('App Launch')
+			//获取code
+			login()
 		},
 		onShow: function() {
 			console.log('App Show')
