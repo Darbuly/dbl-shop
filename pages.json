@@ -101,9 +101,18 @@
 		{
             "path" : "pages/product/list",
             "style" : {
-				"navigationBarTitleText": "商品列表",
+				"enablePullDownRefresh": true,
+				"navigationBarTitleText": "商品列表"
+			}
+        },
+		{
+            "path" : "pages/product/product",
+            "style" : {
+				"navigationBarTitleText": "详情展示",
 				"app-plus": {
-					"bounce": "none"
+					"titleNView": {
+						"type": "transparent"//不显示顶部导航栏
+					}
 				}
 			}
         },
